@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 
+// Formspree のフォームIDを設定してください
+// 手順: https://formspree.io でサインアップ → New Form → IDをここに貼り付け
+const FORMSPREE_ID = "YOUR_FORM_ID";
+
 type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function ContactForm() {
@@ -31,18 +35,10 @@ export default function ContactForm() {
     setState("submitting");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: "POST",
-        body: JSON.stringify({
-          name: data.get("name"),
-          email: data.get("email"),
-          phone: data.get("phone"),
-          age: data.get("age"),
-          date: data.get("date"),
-          experience: data.get("experience"),
-          message: data.get("message"),
-        }),
-        headers: { "Content-Type": "application/json" },
+        body: data,
+        headers: { Accept: "application/json" },
       });
       if (res.ok) {
         setState("success");
@@ -140,9 +136,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-stone-700 mb-1">
-          ピアノ経験
-        </label>
+        <label className="block text-sm font-medium text-stone-700 mb-1">ピアノ経験</label>
         <select
           name="experience"
           className="w-full border border-stone-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-rose-300 bg-white"
