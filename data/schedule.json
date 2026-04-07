@@ -1,0 +1,19 @@
+{
+  "note": "レッスン枠の空き状況を更新してください。status: 'open'=空きあり, 'few'=残りわずか, 'full'=満席",
+  "slots": [
+    { "day": "月曜日", "time": "10:00〜11:00", "status": "open" },
+    { "day": "月曜日", "time": "11:00〜12:00", "status": "open" },
+    { "day": "月曜日", "time": "14:00〜15:00", "status": "few" },
+    { "day": "月曜日", "time": "15:00〜16:00", "status": "full" },
+    { "day": "水曜日", "time": "10:00〜11:00", "status": "open" },
+    { "day": "水曜日", "time": "14:00〜15:00", "status": "open" },
+    { "day": "水曜日", "time": "15:00〜16:00", "status": "few" },
+    { "day": "水曜日", "time": "16:00〜17:00", "status": "full" },
+    { "day": "木曜日", "time": "10:00〜11:00", "status": "open" },
+    { "day": "木曜日", "time": "11:00〜12:00", "status": "open" },
+    { "day": "土曜日", "time": "10:00〜11:00", "status": "few" },
+    { "day": "土曜日", "time": "11:00〜12:00", "status": "full" },
+    { "day": "土曜日", "time": "14:00〜15:00", "status": "open" },
+    { "day": "土曜日", "time": "15:00〜16:00", "status": "few" }
+  ]
+}
