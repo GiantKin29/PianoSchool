@@ -26,8 +26,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: { "@type": "Person", name: "山田 花音" },
+    publisher: { "@type": "Organization", name: "花音ピアノ教室" },
+  };
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link href="/blog" className="text-rose-400 hover:underline text-sm mb-8 inline-block">
         ← ブログ一覧へ戻る
       </Link>

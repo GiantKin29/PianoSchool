@@ -5,8 +5,23 @@ import { getAllPostsMeta } from "@/lib/posts";
 export default function Home() {
   const latestPosts = getAllPostsMeta().slice(0, 3);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MusicSchool",
+    name: profile.schoolName,
+    description: profile.catchphrase,
+    address: { "@type": "PostalAddress", streetAddress: profile.address },
+    telephone: profile.tel,
+    email: profile.email,
+    url: "https://giantkin29.github.io/PianoSchool",
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-rose-50 via-pink-50 to-amber-50 py-24 px-4 text-center overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none select-none text-[200px] leading-none flex items-center justify-center text-rose-300">
